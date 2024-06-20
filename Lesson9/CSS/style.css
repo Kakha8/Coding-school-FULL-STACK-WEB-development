@@ -1,0 +1,42 @@
+body{
+    height: 100vh;
+}
+
+.b{
+    border: 1px solid gray;
+}
+
+header{
+    padding-top: 20px;
+}
+
+.header-container{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-container div{
+    border: 1 solid gray;
+}
+
+.nav-container{
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container{
+    margin: 5px;
+    display: flex;
+    height: 600px;
+    justify-content: flex-start;
+
+}
+
+.main-content-left{
+    width: 80%;
+    border: 1px solid gray;
+}

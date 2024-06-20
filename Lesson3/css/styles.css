@@ -1,0 +1,17 @@
+html{
+    padding: 0px;
+    margin: 0px;
+    background-color: green;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.logo{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border: 5px solid rgb(13, 13, 162);
+    padding: 5px;
+}
+.white{
+    color: white;
+}
