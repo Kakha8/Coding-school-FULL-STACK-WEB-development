@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Success Page</title>
+    <link rel="stylesheet" href="/css/success-styles.css">
+</head>
+<body>
+    <div class="user-info">
+        <a href="/edit" class="edit-link">Edit</a>
+        <h2>User Information</h2>
+        <p><strong>Username:</strong> <%= username %></p>
+        <p><strong>Email:</strong> <%= email %></p>
+    </div>
+
+    <h1>Welcome, <%= username %></h1>
+
+    <form action="/logout" method="POST">
+        <button type="submit" class="logout-button">Logout</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Created At</th>
+                <% if (isAdmin) { %>
+                    <th>Actions</th>
+                <% } %>
+            </tr>
+        </thead>
+        <tbody>
+            <% users.forEach(user => { %>
+                <tr>
+                    <td><%= user.username %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.created_at %></td>
+                    <% if (isAdmin && user.username !== 'Admin') { %>
+                        <td class="actions">
+                            <button class="update" onclick="showUpdateOptions('<%= user.username %>')">Update</button>
+                            <form action="/delete/<%= user.username %>" method="POST" style="display:inline;">
+                                <button type="submit" class="delete" onclick="return confirmDelete()">Delete</button>
+                            </form>
+                        </td>
+                    <% } %>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+    <!-- Modal for Update Options -->
+    <div id="updateModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close" onclick="hideUpdateOptions()">&times;</span>
+                <h2>Select Field to Update</h2>
+            </div>
+            <div class="modal-body">
+                <form id="updateOptionsForm" action="" method="GET">
+                    <input type="hidden" id="updateUser" name="username">
+                    <label>
+                        <input type="radio" name="field" value="username" required> Username
+                    </label>
+                    <label>
+                        <input type="radio" name="field" value="email"> Email
+                    </label>
+                    <label>
+                        <input type="radio" name="field" value="password"> Password
+                    </label>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button onclick="submitUpdateOptions()">Continue</button>
+                <button onclick="hideUpdateOptions()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/admin-update.js"></script>
+</body>
+</html>

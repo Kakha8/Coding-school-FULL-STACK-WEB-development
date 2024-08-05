@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2e2e2e;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in element width/height */
+}
+h1 {
+    color: #f4f4f4;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #333;
+    color: #f4f4f4;
+    margin-top: 50px; /* Adjusted space to accommodate the user info box */
+}
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #444;
+}
+th {
+    background-color: #555;
+}
+tr:nth-child(even) {
+    background-color: #444;
+}
+.actions {
+    display: flex;
+    gap: 10px;
+}
+.actions button {
+    padding: 5px 10px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.actions button.update {
+    background-color: #4CAF50;
+}
+.actions button.delete {
+    background-color: #f44336;
+}
+.logout-button {
+    background-color: #f44336;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 30px; /* Space below the welcome text */
+    display: block; /* Ensure logout button is on its own line */
+}
+.user-info {
+    background-color: #444;
+    color: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 0.9em;
+    width: 250px; /* Adjust width as needed */
+    margin-bottom: 20px; /* Add space below the user-info box */
+    position: relative; /* Make the box relative for absolute positioning of the edit link */
+}
+.user-info h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+.user-info p {
+    margin: 5px 0;
+}
+.edit-link {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+.edit-link:hover {
+    text-decoration: underline;
+}
+
+/* Modal styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+.modal-content {
+    background-color: #333;
+    margin: 5% auto; /* 5% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    color: #f4f4f4;
+    border-radius: 5px;
+}
+.modal-header, .modal-body, .modal-footer {
+    padding: 10px;
+}
+.modal-header {
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.modal-footer {
+    border-top: 1px solid #444;
+    text-align: right;
+}
+.close {
+    color: #f4f4f4;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: #f44336;
+}

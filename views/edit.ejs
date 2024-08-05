@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="/css/edit-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Profile</h1>
+
+        <% if (errors.length > 0) { %>
+            <div class="error">
+                <% errors.forEach(error => { %>
+                    <p><%= error %></p>
+                <% }) %>
+            </div>
+        <% } %>
+
+        <button class="collapsible">Change Username</button>
+        <div class="content">
+            <% if (!isAdmin) { %>
+                <form action="/edit/username" method="POST">
+                    <div class="input-group">
+                        <label for="newUsername">New Username:</label>
+                        <input type="text" id="newUsername" name="newUsername" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Current Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Update Username</button>
+                </form>
+            <% } else { %>
+                <p>Admin username cannot be changed.</p>
+            <% } %>
+        </div>
+
+        <button class="collapsible">Change Email</button>
+        <div class="content">
+            <form action="/edit/email" method="POST">
+                <div class="input-group">
+                    <label for="newEmail">New Email:</label>
+                    <input type="email" id="newEmail" name="newEmail" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Current Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Update Email</button>
+            </form>
+        </div>
+
+        <button class="collapsible">Change Password</button>
+        <div class="content">
+            <form action="/edit/password" method="POST">
+                <div class="input-group">
+                    <label for="currentPassword">Current Password:</label>
+                    <input type="password" id="currentPassword" name="currentPassword" required>
+                </div>
+                <div class="input-group">
+                    <label for="newPassword">New Password:</label>
+                    <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Confirm New Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                </div>
+                <button type="submit">Update Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/edit.js"></script>
+</body>
+</html>

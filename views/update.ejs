@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update <%= field %> for <%= username %></title>
+    <link rel="stylesheet" href="/css/update-styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Update <%= field %> for <%= username %></h1>
+        <form id="updateForm" action="/update/<%= username %>/<%= field %>" method="POST">
+            <label for="newValue">New <%= field %>:</label>
+            <input type="text" id="newValue" name="newValue" required>
+            <label for="adminPassword">Admin Password:</label>
+            <input type="password" id="adminPassword" name="adminPassword" required>
+            <button type="submit">Update</button>
+        </form>
+        <a href="/success" class="cancel-link">Cancel</a>
+    </div>
+
+    
+</body>
+</html>
